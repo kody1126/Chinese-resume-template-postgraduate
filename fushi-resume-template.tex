@@ -1,0 +1,249 @@
+% !TEX program = xelatex
+% =============================================================================
+% 中文考研复试简历 LaTeX 模板
+% Author: Kody
+% Repository: https://github.com/kodyyu1126/Chinese-resume-template-postgraduate
+% Compiler: XeLaTeX
+%
+% 快速修改指南：
+% 1. 在“个人信息头部”中替换姓名、联系方式、政治面貌和头像。
+% 2. 在“报考信息”中替换报考院校、专业和初试成绩。
+% 3. 在教育、项目、实习、校园经历与技能证书模块中增删示例内容。
+% 4. 如需调整样式，可修改下方的字体、页面边距与 sectioncolor 配置。
+% 发布公开版本前，请将上方 Repository 链接替换为实际 GitHub 仓库地址。
+% =============================================================================
+\documentclass[11pt,a4paper,fontset=none]{ctexart}
+
+% ── 字体设置 ──────────────────────────────────────────────
+% 若需在 Overleaf 使用自定义字体，可将已授权的字体文件放入 fonts/ 文件夹，
+% 并按 STSong.ttf、STHeiti.ttf、STKaiti.ttf 命名；macOS 本地默认使用系统华文系列。
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{}
+
+\newif\ifuseuploadedcjkfonts
+\IfFileExists{fonts/STSong.ttf}{
+    \IfFileExists{fonts/STHeiti.ttf}{
+        \IfFileExists{fonts/STKaiti.ttf}{\useuploadedcjkfontstrue}{}
+    }{}
+}{}
+
+\newif\ifusesystemcjkfonts
+\IfFontExistsTF{STSong}{
+    \IfFontExistsTF{STHeiti}{
+        \IfFontExistsTF{STKaiti}{\usesystemcjkfontstrue}{}
+    }{}
+}{}
+
+\ifuseuploadedcjkfonts
+    \setCJKmainfont[
+        Path = fonts/,
+        BoldFont = STHeiti.ttf,
+        ItalicFont = STKaiti.ttf
+    ]{STSong.ttf}
+    \setCJKsansfont[Path = fonts/]{STHeiti.ttf}
+    \setCJKmonofont[Path = fonts/]{STHeiti.ttf}
+\else\ifusesystemcjkfonts
+    \setCJKmainfont[
+        BoldFont = STHeiti,
+        ItalicFont = STKaiti
+    ]{STSong}
+    \setCJKsansfont{STHeiti}
+    \setCJKmonofont{STHeiti}
+\else
+    \setCJKmainfont[
+        BoldFont = Noto Sans CJK SC,
+        ItalicFont = Noto Serif CJK SC
+    ]{Noto Serif CJK SC}
+    \setCJKsansfont{Noto Sans CJK SC}
+    \setCJKmonofont{Noto Sans CJK SC}
+\fi\fi
+
+% ── 页面布局 ──────────────────────────────────────────────
+\usepackage{geometry}
+\geometry{a4paper, left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm}
+
+% ── 颜色定义 ──────────────────────────────────────────────
+\usepackage{xcolor}
+\definecolor{sectioncolor}{RGB}{46,116,181}
+\definecolor{linkcolor}{RGB}{0,112,192}
+\definecolor{textcolor}{RGB}{0,0,0}
+
+% ── 标题格式 ──────────────────────────────────────────────
+\usepackage{titlesec}
+\titleformat{\section}
+    {\Large\bfseries\color{sectioncolor}}
+    {}
+    {0em}
+    {\uppercase}
+    [\vspace{-0.8em}\rule{\textwidth}{1pt}]
+\titlespacing{\section}{0pt}{0.1em}{0.1em}
+
+% ── 列表格式 ──────────────────────────────────────────────
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*, nosep, topsep=0.2em, itemsep=0.1em, parsep=0em}
+
+% ── 图片与排版 ────────────────────────────────────────────
+\usepackage{graphicx}
+\setkeys{Gin}{draft=false}
+\usepackage[export]{adjustbox}
+\usepackage{calc}
+
+% ── 表格 ─────────────────────────────────────────────────
+\usepackage{tabularx}
+\usepackage{multirow}
+
+% ── 图标与超链接 ──────────────────────────────────────────
+\usepackage{fontawesome5}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=linkcolor, urlcolor=linkcolor}
+
+% ── 全局样式 ──────────────────────────────────────────────
+\color{textcolor}
+\linespread{1.15}
+\pagestyle{empty}
+
+% ── 自定义命令 ────────────────────────────────────────────
+\newcommand{\daterange}[1]{{\textbf{#1}}}
+\newcommand{\entrytitle}[1]{{\textbf{#1}}}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+% ── 个人信息头部：修改姓名、出生年月、电话、政治面貌和邮箱 ──
+\noindent
+\begin{minipage}[t]{0.7\textwidth}
+    \vspace*{-2.5em}
+    \begin{center}
+        {\Huge\bfseries\color{sectioncolor} 姓 名} \\[1.5em]
+        \hspace{3em}
+        \begin{tabular}{@{}ll@{\hspace{2.5em}}ll@{}}
+            \textbf{出生年月：} & XXXX.XX   & \textbf{电话：} & 1XX-XXXX-XXXX \\[0.4em]
+            \textbf{政治面貌：} & 预备党员  & \textbf{邮箱：} & your.email@example.com \\
+        \end{tabular}
+    \end{center}
+\end{minipage}%
+\begin{minipage}[t]{0.3\textwidth}
+    \vspace*{-2.5em}
+    \begin{flushright}
+        \adjustbox{valign=t, raise=-0.7em}{
+            % 头像：替换为自己的图片；建议使用 3:4 左右的竖版证件照。
+            \includegraphics[width=2.8cm,height=3.3cm,keepaspectratio]{assets/profile-photo.png}
+        }
+    \end{flushright}
+\end{minipage}
+
+\vspace{0.3em}
+
+% ── 报考信息：修改报考院校、专业与初试成绩 ────────────────
+\section*{报考信息}
+\vspace{-0.3em}
+
+\noindent
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+    \textbf{报考院校：XXXX大学} & \textbf{报考专业：XXXX专业} \\
+\end{tabular*}
+
+\vspace{0.4em}
+
+\noindent
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}X
+                              |>{\centering\arraybackslash}X
+                              |>{\centering\arraybackslash}X
+                              |>{\centering\arraybackslash}X
+                              |>{\centering\arraybackslash}X
+                              |>{\centering\arraybackslash}X|}
+\hline
+        \multirow{2}{*}{\textbf{初始成绩}} & 政治 & 英语（一） & 数学（一） & 专业课 & 总分 \\
+\cline{2-6}
+ & - & - & - & - & \textbf{-} \\
+\hline
+\end{tabularx}
+
+\vspace{0.6em}
+
+% ── 教育背景：替换学校、专业、时间、GPA、排名和主修课程 ──
+\section*{教育背景}
+\vspace{-0.3em}
+
+\noindent
+\begin{tabular}{@{}p{7cm}@{}}
+    \textbf{示例大学}
+\end{tabular}
+\begin{tabular}{@{}p{7cm}@{}}
+    \textbf{示例专业}
+\end{tabular}
+\hfill\textbf{20XX.09 \textasciitilde{} 20XX.06}
+
+\par\noindent
+$\bullet$ \textbf{GPA：}X.XX/X.X \hspace{4em} \textbf{专业排名：}前X\%
+
+\par\noindent
+$\bullet$ \textbf{主修课程：}课程一、课程二、课程三、课程四、课程五等。
+
+% ── 项目经历：按“项目名称｜角色 + 时间 + 要点”格式增删 ────
+\section*{项目经历}
+\vspace{-0.1em}
+
+% 项目一
+\noindent
+\entrytitle{基于GARCH-VaR模型的白酒行业风险度量与风险预测｜ 毕业设计}
+\hfill \daterange{2025.10 \textasciitilde{} 2026.03}
+
+\par\noindent
+$\bullet$ \textbf{数据建模：}基于2020–2023年白酒行业8只股票数据（贵州茅台等），完成数据清洗与对数收益率构建，运用Matlab和Stata构建GARCH和EGARCH模型，通过最大似然估计参数进行求解与模型优化。
+
+\par\noindent
+$\bullet$ \textbf{风险预测：}采用VaR方法预测风险，在多置信水平下计算日度潜在损失，通过回测及RMSE、MAE指标验证模型；结合行业事件分析波动率变化，对比不同梯队股票风险特征，提出投资与风险预警建议。
+
+% 项目二
+\noindent
+\entrytitle{基于优化算法的农作物种植策略研究（数学建模） ｜ 负责人}
+\hfill \daterange{2024.09}
+
+\par\noindent
+$\bullet$ \textbf{模型构建：}基于乡村54块耕地与41类农作物数据，构建以利润最大化为目标的多约束优化模型（地块匹配、面积限制等），采用遗传算法（DEAP库）求解，经200次迭代收敛，得出2024-2030最优种植策略。
+
+\par\noindent
+$\bullet$ \textbf{优化分析：}在不确定性条件下进一步引入鲁棒优化与双目标建模（收益最大化+风险最小化），结合Spearman分析刻画销售量、价格与成本的相关性，与基准模型对比，收益提升15\%。
+
+% ── 实习经历：替换单位、岗位、时间与可量化成果 ────────────
+\section*{实习经历}
+\vspace{-0.1em}
+
+\noindent
+\entrytitle{XX银行XX支行 ｜ 实习生}
+\hfill \daterange{2026.02 \textasciitilde{} 2026.03}
+
+\par\noindent
+$\bullet$ \textbf{客户服务：}协助大堂经理客户分流与接待，主动引导客户取号并分流至对应柜台/智慧柜员机办理业务，耐心解答基础金融咨询并指导操作；日均接待客户80余人，显著提高了网点运营效率与客户满意度。
+\par\noindent
+$\bullet$ \textbf{运营支持：}负责日常单据整理、资料归档及信息录入等运营支持工作，确保账户开户、对公业务、信贷申请等关键流程的文档完整性与合规性；日均处理100份单据，数据录入准确率达100\%（零误差）。
+
+% ── 校园经历：替换学生工作、社团或志愿服务经历 ────────────
+\section*{校园经历}
+\vspace{-0.1em}
+
+\noindent
+\entrytitle{2022级金融工程1班 ｜ 团支书}
+\hfill \daterange{2022.09 \textasciitilde{} 2023.09}
+
+\par\noindent
+$\bullet$ \textbf{组织管理：}负责班级团支部日常团务工作，组织开展政治理论学习、主题团日和团课活动8次，推进团员思想教育与班级凝聚力建设；协助完成团员发展、材料整理与信息传达。
+
+\noindent
+\entrytitle{校团委学生会 ｜ 社团管理监督部干事}
+\hfill \daterange{2023.09 \textasciitilde{} 2024.9}
+
+\par\noindent
+$\bullet$ \textbf{活动管理：}负责跟进社团活动执行，监督流程规范性及经费合规性，参与现场考勤、资料记录与反馈收集，协助推动活动整改与优化；积极参与各类社团及志愿活动，个人累计志愿服务时长98h。
+
+% ── 技能证书：替换证书、软件技能和荣誉奖项 ────────────────
+\section*{技能证书}
+\vspace{-0.1em}
+\noindent $\bullet$ \textbf{专业证书：}CET-4、CET-6（495分）、计算机MS office二级、普通话二级乙等。
+
+\noindent $\bullet$ \textbf{专业技能：}Python、Matlab、SPSS；熟练使用WPS、Office等办公软件。
+
+\noindent $\bullet$ \textbf{在校荣誉：}“电工杯”全国大学生数学建模竞赛国家级三等奖、全国大学生数学建模竞赛省级一等奖、“东方财富杯”全国大学生金融挑战赛省级二等奖、优秀学生奖学金一等奖、优秀共青团员、优秀工作者。
+
+\end{document}

@@ -1,0 +1,10 @@
+# LaTeX build artifacts
+.DS_Store
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.fls
+*.fdb_latexmk
+missfont.log
