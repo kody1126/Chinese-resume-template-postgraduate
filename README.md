@@ -8,7 +8,7 @@
 
 1. 研究生复试。
 2. 复试通过后与学校老师套磁使用。
-3. 对于求职场景，可参考配套的 [中文求职简历模板](https://github.com/kodyyu1126/Chinese-resume-template-work)。
+3. 对于求职场景，可参考配套的 [中文求职简历模板](https://github.com/kody1126/Chinese-resume-template-work)。
 
 本简历默认推荐在 macOS 本地使用华文宋体、华文黑体、华文楷体和 Times New Roman 编译，以获得最佳显示效果。仓库不提供华文字体文件；在 Overleaf 等其他环境中，如需接近 macOS 本地效果，可自行将已授权的字体文件上传至 `fonts/` 文件夹。
 
@@ -59,5 +59,9 @@ This project is licensed under the MIT License. See [LICENSE](./LICENSE) for det
 
 ## 联系方式
 
+欢迎通过以下方式交流、反馈问题或参与模板改进：
+
+- 问题与建议：提交 [Issue](https://github.com/kody1126/Chinese-resume-template-postgraduate/issues)
+- 模板改进与贡献：提交 [Pull Request](https://github.com/kody1126/Chinese-resume-template-postgraduate/pulls)
 - Email: [kodyyu1126@outlook.com](mailto:kodyyu1126@outlook.com)
 - QQ: `2386157328`
