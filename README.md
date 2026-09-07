@@ -62,6 +62,6 @@ This project is licensed under the MIT License. See [LICENSE](./LICENSE) for det
 欢迎通过以下方式交流、反馈问题或参与模板改进：
 
 - 问题与建议：提交 [Issue](https://github.com/kody1126/Chinese-resume-template-postgraduate/issues)
-- 模板改进与贡献：提交 [Pull Request](https://github.com/kody1126/Chinese-resume-template-postgraduate/pulls)
+- 模板改进与贡献：提交 [PR](https://github.com/kody1126/Chinese-resume-template-postgraduate/pulls)
 - Email: [kodyyu1126@outlook.com](mailto:kodyyu1126@outlook.com)
 - QQ: `2386157328`
