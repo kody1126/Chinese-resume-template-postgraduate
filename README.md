@@ -29,18 +29,18 @@ Chinese-resume-template-postgraduate/
 
 ## 使用步骤
 
-### Overleaf
-
-1. GitHub -> **Code -> Download ZIP**。
-2. [Overleaf](https://www.overleaf.com/) -> **New Project -> Upload Project**。
-3. 打开 `fushi-resume-template.tex`，将 Compiler 设为 **XeLaTeX**。
-4. 根据注释完成个人信息、成绩、经历和头像的编辑。
-
 ### VS Code （推荐）
 
 1. 下载并解压项目，用 VS Code 打开整个文件夹。
 2. 安装 LaTeX 发行版和 [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) 扩展。
 3. 通过 LaTeX Workshop 使用 **XeLaTeX** 编译。
+4. 根据注释完成个人信息、成绩、经历和头像的编辑。
+
+### Overleaf
+
+1. GitHub -> **Code -> Download ZIP**。
+2. [Overleaf](https://www.overleaf.com/) -> **New Project -> Upload Project**。
+3. 打开 `fushi-resume-template.tex`，将 Compiler 设为 **XeLaTeX**。
 4. 根据注释完成个人信息、成绩、经历和头像的编辑。
 
 ## 示例截图
